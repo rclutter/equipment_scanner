@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,6 +115,8 @@ hr { border: none; border-top: 1px solid #333; margin: 20px 0; }
     <option value="BDM">Bistro du Midi</option>
     <option value="HAR">Harvest</option>
     <option value="BKS">The Banks</option>
+    <option value="LBL">Le Boulevard</option>
+    <option value="B23">Bar 23</option>
   </select>
 
   <label>Location</label>
@@ -259,7 +262,7 @@ var LOCS = {
   BKS:["Main kitchen","Prep kitchen","Downstairs kitchen (inactive)","Down bar","Up bar","Down dish room","Up dish room","Down wine cellar","Up wine cellar","Mechanical room","Electrical room"]
 };
 
-var REST_NAMES = {G23:"Grill 23 & Bar",BDM:"Bistro du Midi",HAR:"Harvest",BKS:"The Banks"};
+var REST_NAMES = {G23:"Grill 23 & Bar",BDM:"Bistro du Midi",HAR:"Harvest",BKS:"The Banks",LBL:"Le Boulevard",B23:"Bar 23"};
 
 var EQUIP = [
   ["Refrigeration","REF"],["Freezer","FRZ"],["Ice Machine","ICE"],
@@ -443,7 +446,7 @@ function doExtract() {
 
   var prompt = 'Analyze this equipment nameplate photo. Return ONLY a JSON object with these keys: manufacturer, model, serial, description, equipmentType (one of: Refrigeration/Freezer/Ice Machine/Oven-Range/Fryer/Grill-Broiler/Dishwasher/Heat Pump/Exhaust Hood-Fan/Pump/Water Heater/Electrical Panel/Bar Equipment/Miscellaneous), notes (voltage amps BTU etc comma separated), installYear (4 digits or empty). Empty string if not visible. JSON only, no other text.';
 
-  fetch('https://restless-snow-8f29.rclutter.workers.dev/', {
+  fetch('https://hhg-facility-scanner.sweet-base-1178.workers.dev/', {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({
